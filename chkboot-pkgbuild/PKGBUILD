@@ -25,12 +25,12 @@ package() {
     #INSTALL THE COMMON CONFIGURATION SETTINGS FILE
 	install -D -m644 "${srcdir}"/${_pkgname}/${_pkgname}.conf "${pkgdir}"/etc/default/${_pkgname}.conf
 
-    #INSTALL MAIN THE CHKBOOT SCRIPT AND A ONE TO CHECK THE CURRENT STATE
+    #INSTALL THE MAIN CHKBOOT SCRIPT AND A ONE TO CHECK THE CURRENT STATE
 	install -D -m755 "${srcdir}"/${_pkgname}/${_pkgname} "${pkgdir}"/usr/bin/${_pkgname}
-	install -D -m755 "${srcdir}"/${_pkgname}/${_pkgname}-check "${pkgdir}"/etc/profile.d/${_pkgname}-check
+	install -D -m755 "${srcdir}"/${_pkgname}/${_pkgname}-check "${pkgdir}"/usr/bin/${_pkgname}-check
 
 	#INSTALL A PROFILE SCRIPT THAT TRIGGERS A WARNING IN A USER'S TERMINAL WHEN CHANGES EXIST
-	install -D -m755 "${srcdir}"/${_pkgname}/${_pkgname}-profilealert.sh "${pkgdir}"/usr/bin/${_pkgname}-profilealert.sh
+	install -D -m755 "${srcdir}"/${_pkgname}/${_pkgname}-profilealert.sh "${pkgdir}"/etc/profile.d/${_pkgname}-profilealert.sh
 
 	#INSTALL AN INITCPIO SCRIPT FOR USERS TO ADD TO THE END OF THE 'HOOKS' ARRAY IN '/etc/mkinitcpio.conf'
 	install -D -m644 "${srcdir}"/${_pkgname}/${_pkgname}-initcpio "${pkgdir}"/usr/lib/initcpio/install/${_pkgname}
